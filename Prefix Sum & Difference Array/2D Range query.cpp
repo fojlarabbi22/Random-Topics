@@ -1,3 +1,5 @@
+// O(1) per query
+
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
