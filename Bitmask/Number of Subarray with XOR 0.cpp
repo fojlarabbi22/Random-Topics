@@ -13,7 +13,7 @@ void solve() {
         pre[i] = pre[i - 1] ^ a[i];
     }
     map<int, int> mp; 
-    mp[pre[0]]++; // Very important 
+    mp[pre[0]]++; // Don't forget to add this (why?)
     int ans = 0;
     for(int i = 1; i <= n; i++) {
         ans += mp[pre[i]];
