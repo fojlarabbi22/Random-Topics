@@ -14,6 +14,8 @@ void solve() {
     }
     map<int, int> mp; 
     mp[pre[0]]++; // Don't forget to add this (why?)
+    // If pre[i] == 0, then how can we count it?
+    // First 0 must straightaway increase the ans
     int ans = 0;
     for(int i = 1; i <= n; i++) {
         ans += mp[pre[i]];
