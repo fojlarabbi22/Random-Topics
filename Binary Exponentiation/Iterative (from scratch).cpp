@@ -4,15 +4,15 @@
 using namespace std;
 #define ll long long
 
-int power(int x, ll n, int mod) { // O(log n) = 64
-    vector<int> xpw2(64, 0);
+int power(int x, ll n, int mod) { // O(log n) = 63
+    vector<int> xpw2(63); // 63 is enough, long long --> total 63 bits (as highest value is 2^63 - 1)
     xpw2[0] = x % mod; // x^(2^0)
     // Precomputing x raised to 2 to the power i  --> x^(2^i)
-    for(int i = 1; i <= 63; i++) {
+    for(int i = 1; i <= 62; i++) {
         xpw2[i] = 1LL * xpw2[i - 1] * xpw2[i - 1] % mod;
     }
     int ans = 1 % mod;
-    for(int i = 0; i <= 63; i++) {
+    for(int i = 0; i <= 62; i++) {
         if(n >> i & 1) {
             ans = 1LL * ans * xpw2[i] % mod;
         }
@@ -35,10 +35,10 @@ int main() {
 using namespace std;
 #define ll long long
 
-int power(int x, ll n, int mod) { // O(log n) = 64
+int power(int x, ll n, int mod) { // O(log n) = 63
     int cur = x % mod; // x^(2^0)   
     int ans = 1 % mod;
-    for(int i = 0; i <= 63; i++) {
+    for(int i = 0; i <= 62; i++) {
         if(n >> i & 1) {
             ans = 1LL * ans * cur % mod;
         }
