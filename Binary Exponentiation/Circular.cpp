@@ -1,4 +1,5 @@
 // Only effective when mod value is small
+// This one is just for fun, will use the most general one always
 
 #include<bits/stdc++.h>
 using namespace std;
