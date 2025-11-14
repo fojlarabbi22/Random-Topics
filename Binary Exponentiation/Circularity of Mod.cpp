@@ -5,7 +5,7 @@
 using namespace std;
 #define ll long long
 
-void power(int x, int n, int mod) {
+int power(int x, int n, int mod) {
     int cur = 1 % mod;
     vector<int> v;
     v.push_back(1); // Pos 0, value 1, x^0
@@ -27,12 +27,12 @@ void power(int x, int n, int mod) {
     for(auto i: v) cout << i << " ";
     cout << '\n';
     cout << "start = " << start << '\n';
-    if(n < start) cout << v[n];
+    if(n < start) return v[n];
     else {
         // Say n = 100, but I actually need to traverse 97 positions 
         // inside the infinite cycle (as start = 3)
         n -= start;
-        cout << v[start + n % cycle_len] << '\n';        
+        return v[start + n % cycle_len];        
     }
 
 }
@@ -40,7 +40,7 @@ void power(int x, int n, int mod) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    power(2, 9, 40);
+    cout << power(2, 9, 40);
     return 0;
 }
 /*
