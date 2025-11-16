@@ -1,33 +1,33 @@
 // Say you are told to determine a^(b^c) [a raised to b raised to c]
 // a, b, c all are large values 
-// mod is Prime and doesn't divide a
+// And mod is Prime and doesn't divide a
 
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
 
-int power(int x, ll n, int mod) { // O(log n) = 64
-    x = x % mod;   
-    int ans = 1 % mod;
+int binpow(ll a, ll n, int m) { // O(log n) = 64
+    a = a % m;   
+    ll res = 1 % m;
     while(n > 0) {
         if(n & 1) {
-            ans = 1LL * ans * x % mod;
+            res = res * a % m;
         }
-        x = 1LL * x * x % mod;
-        n = n >> 1;
+        a = a * a % m;
+        n >>= 1;
     }
-    return ans;
+    return res;
   
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int mod = 1e9 + 7;
+    int m = 1e9 + 7;
     int a, b, c;
     cin >> a >> b >> c;
-    int e = power(b, c , mod - 1);
-    cout << power(a, e, mod);
+    int e = binpow(b, c, m - 1);
+    cout << binpow(a, e, m);
     return 0;
 }
 // 3 4 5
